@@ -17,11 +17,11 @@ library(dplyr)
 library(Hmisc)
 library(clubSandwich)
 
-source("/home/natalia/MetaAnalysis-R/scripts/TrustMA/Final/correlation.R")  ### Correlations function
-source("/home/natalia/MetaAnalysis-R/scripts/TrustMA/Final/effectsizes_variance.R")  ### Calculate effect sizes and variance
-source("/home/natalia/MetaAnalysis-R/scripts/TrustMA/Final/MRE_model.R")  ### Multivariate Random Effect Analyses
-source("/home/natalia/MetaAnalysis-R/scripts/TrustMA/Final/visualizations.R")  ### Meta-analytic visualizations
-source("/home/natalia/MetaAnalysis-R/scripts/TrustMA/Final/heterogeneity.R")  ### Heterogeneity
+source("correlation.R")           ### Correlations function
+source("effectsizes_variance.R")  ### Calculate effect sizes and variance
+source("MRE_model.R")             ### Multivariate Random Effect Analyses
+source("visualizations.R")        ### Meta-analytic visualizations
+source("heterogeneity.R")         ### Heterogeneity
 
 # Install packages using the pacman package
 if (!require("pacman")) install.packages("pacman")
@@ -510,7 +510,7 @@ I2_comIVCat <- calculate_I2(IVCategory_CT, V_CT)
 ######### 3.7. Power Analysis Competency Trust #####
 # We now extract the effect size from our meta-analytic model computed in Section 3.2
 EffectSize = as.numeric(com_RE_Model$b)  
-# Let's again assume we want to conduct a paired t-test with the effect size above, how many children do we need to reach 80% power?
+# How many children do we need to reach 80% power?
 comp_power <- pwr.t.test(d = EffectSize, power = 0.8, type = "paired", alternative = "two.sided")
 cat("Power Liking Experimental Design: Within \n")
 comp_power
