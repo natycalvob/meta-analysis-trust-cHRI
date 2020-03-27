@@ -41,6 +41,6 @@ git clone https://github.com/natycalvob/meta-analysis-trust-cHRI.git
 ```
 
 
-## Authors
-
+## Author
 * [Natalia Calvo-Barajas](https://github.com/natycalvob), e-mail: natalia.calvo@it.uu.se
+* Rebecca Stower, e-mail: r.stower@jacobs-university.de
