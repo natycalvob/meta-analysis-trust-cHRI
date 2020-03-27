@@ -13,8 +13,8 @@ This repository contains the a set of R scripts to run a Multivariate Mixed-Effe
 | visualizations.R | Meta-Analytic visualizations |
 | MetaAnalysis_Trust_cHRI | Collection of studies related to this research, methods, selection criteria, coding book for data extraction.|
 
-*Note 1: We follow the methodology proposed by Standford Metalab to calculate the effect sizes estimates based on the experimental design, variance, and data extration. Please check the MetaLab repository for more details.*
-<a https://github.com/langcog/metalab2">Github Metalab</a>
+*Note 1: We follow the methodology proposed by Standford Metalab to calculate the effect sizes estimates based on the experimental design, variance, and data extration. Please check the MetaLab repository for more details.* </br>
+[Github Metalab](https://github.com/langcog/metalab2)
 
 ## Requirements
 
@@ -30,7 +30,7 @@ In order to succesfully run the code, you should install the following libraries
 
 ## Data Set
 
-You can find the dataset for the current Meta Analysis <a https://docs.google.com/spreadsheets/d/e/2PACX-1vQeQHaYFl1a8Pm5oz-k2oYyb6IUpJ7NLeSgSo44wWSCsfYbexgxa7i7ZHha5s8wG3jCNr_dwcsoEFut/pub?output=csv"> here</a>
+You can find the dataset for the current Meta Analysis [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vQeQHaYFl1a8Pm5oz-k2oYyb6IUpJ7NLeSgSo44wWSCsfYbexgxa7i7ZHha5s8wG3jCNr_dwcsoEFut/pub?output=csv)
 
 ## Installation 
 Do not forget to install the necessary libraries described in the Requirements paragraph.
