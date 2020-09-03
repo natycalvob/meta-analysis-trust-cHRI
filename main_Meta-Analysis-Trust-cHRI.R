@@ -5,6 +5,7 @@
 # title: "A Meta Analysis on Children’s Trust in Social Robots"
 # author: 'Rebecca Stower · Natalia Calvo-Barajas · Ginevra Castellano · Arvid Kappas'
 # date: "20/03/2020"
+# date_update: "03/09/2020"
 
 ###################### Set things up #################################### 
 # To run the code in this document, you should make sure these packages are installed. 
@@ -94,6 +95,8 @@ db_corr_general <- compute_correlations(db_ct_st_liking)
 # Moderator 3: Interaction Type: learning_task, interview, game 
 # Morerator 4: Interaction Length 
 # Moderator 5: Robot Operation: WoZ, semi-autonomous, autonomous
+# Moderator 6: Independet Variable, Robot related Fators: Behaviour, Embodiment, Error, Human
+# Moderator 7: Type of Measure: Subjective, Objective
 
 ################ 1. COMPETENCY + SOCIAL TRUST MODEL ############################
 "Dependent Variables: competency_trust + social_trust 
@@ -195,12 +198,20 @@ summary(RobotOperation_comandsoc, digits = 3)
 I2_comandsocRO <- calculate_I2(RobotOperation_comandsoc, V)
 cat('The amount of Heterogeneity I^2 for the CT+ST Model + Moderator:RobotOperation is: ', I2_comandsocRO)
 
-### 1.6.6. Moderator 6: Independent Variable Category. DV: Competency + Social Trust
+### 1.6.6. Moderator 6: Independent Variable Category. DV: Competency + Social Trust ######
 IVCategory_comandsoc <- multivariate_COR_moderatorIV_model(dbES_Trust, V)
 summary(IVCategory_comandsoc, digits = 3)
 # Heterogeneity Moderator 6
 I2_comandsocIVCat <- calculate_I2(IVCategory_comandsoc, V)
 cat('The amount of Heterogeneity I^2 for the CT+ST Model + Moderator:IndependentVariableCategory is: ', I2_comandsocIVCat)
+
+### 1.6.7. Moderator 7: Type of Measure. DV: Competency + Social Trust #####
+TypeMea_comandsoc <- multivariate_COR_typemeasure_model(dbES_Trust, V)
+summary(TypeMea_comandsoc, digits = 3)
+# Heterogeneity Moderator 7
+I2_TypeMea_comandsoc <- calculate_I2(TypeMea_comandsoc, V)
+cat('The amount of Heterogeneity I^2 for the CT+ST Model + Moderator:IndependentVariableCategory is: ', I2_TypeMea_comandsoc)
+
 
 ####### 1.7. Power Analysis Competency + Social Trust ######
 # Hancock et al. (2011). Found a large global effect concerning trust and HRI d=+0.67. We used this effect size of interest.  
@@ -358,6 +369,13 @@ summary(IVCategory_socandliking, digits = 3)
 I2_soclikingIVCat <- calculate_I2(IVCategory_socandliking,  V_Liking)
 cat('The amount of Heterogeneity I^2 for the ST + Liking Model + Moderator:IndependentVariable_Category is: ', I2_soclikingIVCat)
 
+### 2.6.7. Moderator 7: Type of Measure. DV: Social Trust + Liking #####
+TypeMea_socandlik <- multivariate_COR_typemeasure_model(dbES_LikingTrust, V_Liking)
+summary(TypeMea_socandlik, digits = 3)
+# Heterogeneity Moderator 7
+I2_TypeMea_socandlik <- calculate_I2(TypeMea_socandlik , V_Liking)
+cat('The amount of Heterogeneity I^2 for the CT+ST Model + Moderator:IndependentVariableCategory is: ', I2_TypeMea_socandlik)
+
 ## 2.7. Power Analysis Social Trust + Liking #####
 # We now extract the effect size from our meta-analytic model computed in Section 2.2
 EffectSize = as.numeric(socandliking_RE_Model$b)  
@@ -507,6 +525,14 @@ summary(IVCategory_CT, digits = 3)
 # Heterogeneity Moderator 6
 I2_comIVCat <- calculate_I2(IVCategory_CT, V_CT)
 
+### 3.6.7. Moderator 7: Type of Measure. DV: Competency Trust #####
+TypeMea_CT <- multivariate_COR_typemeasure_model(dbES_CompetencyTrust, V_CT)
+summary(TypeMea_CT, digits = 3)
+# Heterogeneity Moderator 7
+I2_TypeMea_CT <- calculate_I2(TypeMea_CT , V_CT)
+cat('The amount of Heterogeneity I^2 for the CT+ST Model + Moderator:IndependentVariableCategory is: ', I2_TypeMea_CT)
+
+
 ######### 3.7. Power Analysis Competency Trust #####
 # We now extract the effect size from our meta-analytic model computed in Section 3.2
 EffectSize = as.numeric(com_RE_Model$b)  
@@ -634,6 +660,13 @@ summary(IVCategory_ST, digits = 3)
 # Heterogeneity Moderator 6
 I2_socIVCat <- calculate_I2(IVCategory_ST , V_ST)
 cat('The amount of Heterogeneity I^2 for the ST Model + Moderator:IndenpendentVariable_Category is: ', I2_socIVCat)
+
+### 3.6.6. Moderator 7: Type of Measure. DV: Social Trust #####
+TypeMea_ST <- multivariate_COR_typemeasure_model(dbES_SocialTrust, V_ST)
+summary(TypeMea_ST, digits = 3)
+# Heterogeneity Moderator 7
+I2_TypeMea_CT <- calculate_I2(TypeMea_CT , V_ST)
+cat('The amount of Heterogeneity I^2 for the ST Model + Moderator:Type Measure is: ', I2_TypeMea_CT)
 
 ### 4.7. Power Analysis Social Trust ####
 # We now extract the effect size from our meta-analytic model computed in Section 2.2
