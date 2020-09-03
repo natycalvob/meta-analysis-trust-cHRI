@@ -52,6 +52,7 @@ multivariate_uniqueDV_RE_model <- function(db, V){
 # Morerator 4: Interaction Length 
 # Moderator 5: Robot Operation: WoZ, semi-autonomous, autonomous
 # Moderator 6: Independent Variable Category
+# Moderator 7: Type of Measure: Subjective/Objective 
 
 multivariate_COR_moderatorAge_model <- function(db, V){
   "This function computes the multivariate mixed-effect analysis
@@ -172,3 +173,4 @@ multivariate_COR_moderatorIV_model <- function(db, V){
                           mods = ~ dependent_variable:IV_category -1)
   return(Multi_REModel) 
 }
+
