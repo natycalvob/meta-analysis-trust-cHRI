@@ -174,3 +174,19 @@ multivariate_COR_moderatorIV_model <- function(db, V){
   return(Multi_REModel) 
 }
 
+multivariate_COR_typemeasure_model <- function(db, V){
+  "This function computes the multivariate mixed-effect analysis
+  Moderator 7: Type of Measure"
+  Multi_REModel <- rma.mv(db$d_calc, 
+                    V,
+                    data = db,
+                    W = db$weights_d,
+                    method = "REML",         # restricted maximum likelihood
+                    level = 95,              # Confidence Internval 
+                    digits = 7,              # decimal points
+                    slab = db$short_cite,    # study labels
+                    random = ~factor(outcome)| short_cite, # multilevel model to handle sample dependency
+                    struct = "CS",
+                    mods = ~ dependent_variable:type_measure -1)
+ return(Multi_REModel) 
+}
